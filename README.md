@@ -237,45 +237,33 @@ LEFT JOIN menu_items m
   where o.order_id = '440'
   GROUP BY category
 ``` 
-**- Task6: view the details of the top  5 highest spend orders***: 
- SELECT category, COUNT(item_id)
+**- Task6: view the details of the top  5 highest spend orders**: 
+```sql
+SELECT order_id, category, COUNT(item_id)
 FROM order_details o
 LEFT JOIN menu_items m 
-  ON o.item_id = m.menu_item_id 
-  where o.order_id IN ( 440,2075,1957,330,2675)
-  GROUP BY category 
---Conclusion
- /*
-  these top 5 highest spend orders are ordering more Italian food than all the other types of food 
-  */
-  
- --- 
- SELECT order_id, category, COUNT(item_id)
-FROM order_details o
-LEFT JOIN menu_items m 
-  ON o.item_id = m.menu_item_id 
-  where o.order_id IN ( 440,2075,1957,330,2675)
-  GROUP BY category, order_id  
-  --for each category we can see which category they've purchased, 
---Conclusion : 
-  /*
-  the insight that we've gathered here is that we should keep these expensive italian dishes on our menu
-  because people seemed to be orderin them a lot 
-  */
+ON o.item_id = m.menu_item_id 
+where o.order_id IN ( 440,2075,1957,330,2675)
+GROUP BY category
 ```
-📌 Conclusion  :  
+**Conclusion**  
+the insight that we've gathered here is that we should keep these expensive italian dishes on our menu
+because people seemed to be ordering them a lot. 
+  */
 
-Through this data exploration project for The Taste of the World Café, I was able to analyze customer behavior and the performance of menu items following the launch of a new menu.  
+*📌 Main Conclusion*
+
+Through this data exploration project for 'The Taste of the World Café', I was able to analyze customer behavior and the performance of menu items following the launch of a new menu.  
 
 📋 Menu Overview:  
   * 📋 Menu Overview: The menu offers a wide variety of dishes, including multiple categories and Italian cuisine stands out in terms of both variety and pricing.
   * 📈 Ordering Behavior:
 
-The most ordered item is the hamburger, while chicken tacos were among the least popular.
+**The most ordered item is the hamburger, while chicken tacos were among the least popular**.
 
 A small number of orders (top 5) accounted for the highest spending, with a clear preference for Italian dishes.
 
-💡 Strategic Recommendations:
+*💡 Strategic Recommendations:*
 
 Continue offering and potentially expanding the Italian category, as it plays a significant role in high-value orders.
 
